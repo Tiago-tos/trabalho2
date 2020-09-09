@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(E_ALL & ~E_NOTICE);
 require_once(__DIR__ . '/../../templates/template-html.php');
 require_once(__DIR__ . '/../../db/Db.php');
 require_once(__DIR__ . '/../../model/Fornecedor.php');

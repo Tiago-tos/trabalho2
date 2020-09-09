@@ -3,15 +3,19 @@ require_once(__DIR__ . "/../db/Db.php");
 require_once(__DIR__ . "/../model/Departamento.php");
 require_once(__DIR__ . "/../model/Marca.php");
 require_once(__DIR__ . "/../model/Produto.php");
+require_once(__DIR__ . "/../model/Fornecedor.php");
 require_once(__DIR__ . "/../dao/DaoDepartamento.php");
 require_once(__DIR__ . "/../dao/DaoMarca.php");
 require_once(__DIR__ . "/../dao/DaoProduto.php");
+require_once(__DIR__ . "/../dao/DaoProduto.php");
+require_once(__DIR__ . "/../dao/DaoFornecedor.php");
 
 $db = Db::getInstance();
 if ($db->connect()) {
   $daoMarca = new DaoMarca($db);
   $daoProd = new DaoProduto($db);
   $daoDep  = new DaoDepartamento($db);
+  $daoForn  = new DaoFornecedor($db);
 
   $deps[]   = new Departamento("Eletrônicos");
   $deps[]   = new Departamento("Roupas");
@@ -37,6 +41,9 @@ if ($db->connect()) {
   $prods[] = new Produto("Notebook Acer Aspire", 5000, 2, $marcas[4]);
   $prods[] = new Produto("Tablet Multilaser 10p", 200, 20, $marcas[7]);
   foreach($prods as $prod) $daoProd->inserir($prod);
+
+  $fornecedor[] = new Fornecedor("Teste", "62982508951", "Teste", "MT", "MT");
+  foreach($fornecedor as $fornecedor) $daoForn->inserir($fornecedor);
 
   $daoProd->sincronizarDepartamentos($prods[0], [
     $deps[0]->getId(), $deps[2]->getId(), $deps[3]->getId()
