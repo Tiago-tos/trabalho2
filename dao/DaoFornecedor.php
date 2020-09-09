@@ -77,7 +77,7 @@ class DaoFornecedor {
       $categoria = $fornecedor->getCategoria();
       $cidade = $fornecedor->getCidade();
       $estado = $fornecedor->getEstado();
-      $stmt->bind_param('sssssi', $nome, $endereco, $telefone, $categoria,  $cidade, $estado,  $id);
+      $stmt->bind_param('ssssssi', $nome, $endereco, $telefone, $categoria,  $cidade, $estado,  $id);
       $ret = $stmt->execute();
       $stmt->close();
     }
