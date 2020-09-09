@@ -47,7 +47,12 @@ class DaoFornecedor {
     $res = false;
     if ($stmt) {
       $nome = $fornecedor->getNome();
-      $stmt->bind_param('s', $nome);
+      $endereco = $fornecedor->getEndereco();
+      $telefone = $fornecedor->getTelefone();
+      $categoria = $fornecedor->getCategoria();
+      $cidade = $fornecedor->getCidade();
+      $estado = $fornecedor->getEstado();
+      $stmt->bind_param('setccs', $nome, $endereco, $telefone, $categoria,  $cidade, $estado);
       if ($stmt->execute()) {
           $id = $this->connection->getLastID();
           $fornecedor->setId($id);
