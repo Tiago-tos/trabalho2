@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS `produto_departamento`;
 DROP TABLE IF EXISTS `produtos`;
 DROP TABLE IF EXISTS `departamentos`;
 DROP TABLE IF EXISTS `marcas`;
+DROP TABLE IF EXISTS `fornecedor`;
 CREATE TABLE `departamentos` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
@@ -30,7 +31,6 @@ CREATE TABLE `produto_departamento` (
   CONSTRAINT `fk_produto_departamento_departamentos1` FOREIGN KEY (`departamento_id`) REFERENCES `departamentos` (`id`),
   CONSTRAINT `fk_produto_departamento_produtos1` FOREIGN KEY (`produto_id`) REFERENCES `produtos` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 CREATE TABLE `fornecedor` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
