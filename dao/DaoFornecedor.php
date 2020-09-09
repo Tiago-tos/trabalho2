@@ -19,16 +19,10 @@ class DaoFornecedor {
     if ($stmt) {
       $stmt->bind_param('i',$id);
       if ($stmt->execute()) {
-        $nome = '';
-        $endereco = '';
-        $telefone = '';
-        $categoria = '';
-        $cidade = '';
-        $estado = '';
         $stmt->bind_result($nome, $endereco,$telefone,$categoria,$cidade,$estado);
         $stmt->store_result();
         if ($stmt->num_rows == 1 && $stmt->fetch()) {
-          $dep = new Fornecedor($nome, $endereco, $telefone,  $categoria, $cidade, $estado, $id);
+          $dep = new Fornecedor($nome, $endereco,$telefone,$categoria,$cidade,$estado, $id);
         }
       }
       $stmt->close();
