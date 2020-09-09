@@ -66,7 +66,7 @@ class Fornecedor {
         return $this->cidade;
     }
   
-    public function setCidade(string $estado) {
+    public function setEstado(string $estado) {
         $this->estado  = $estado ;
     }
 
