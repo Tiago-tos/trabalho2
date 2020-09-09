@@ -30,3 +30,14 @@ CREATE TABLE `produto_departamento` (
   CONSTRAINT `fk_produto_departamento_departamentos1` FOREIGN KEY (`departamento_id`) REFERENCES `departamentos` (`id`),
   CONSTRAINT `fk_produto_departamento_produtos1` FOREIGN KEY (`produto_id`) REFERENCES `produtos` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `fornecedor` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `endereco` varchar(100) NOT NULL,
+  `telefone` varchar(45) NOT NULL,
+  `categoria` varchar(100) NOT NULL,
+  `cidade` varchar(100),
+  `estado` varchar(100),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
