@@ -42,7 +42,7 @@ class DaoFornecedor {
   }
 
   public function inserir(Fornecedor $fornecedor): bool {
-    $sql = "INSERT INTO fornecedor (nome) VALUES(?)";
+    $sql = "INSERT INTO fornecedor (nome, endereco, telefone,  categoria, cidade, estado) VALUES(?, ?, ?, ?, ?, ?)";
     $stmt = $this->connection->prepare($sql);
     $res = false;
     if ($stmt) {
