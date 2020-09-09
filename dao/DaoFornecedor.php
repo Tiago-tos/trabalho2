@@ -13,7 +13,7 @@ class DaoFornecedor {
   }
   
   public function porId(int $id): ?Fornecedor {
-    $sql = "SELECT id, nome, endereco, telefone,  categoria, cidade, estado FROM fornecedor where id = ?";
+    $sql = "SELECT nome, endereco, telefone,  categoria, cidade, estado FROM fornecedor where id = ?";
     $stmt = $this->connection->prepare($sql);
     $dep = null;
     if ($stmt) {
@@ -25,12 +25,7 @@ class DaoFornecedor {
         $categoria = '';
         $cidade = '';
         $estado = '';
-        $stmt->bind_result($nome);
-        $stmt->bind_result($endereco);
-        $stmt->bind_result($telefone);
-        $stmt->bind_result($categoria);
-        $stmt->bind_result($cidade);
-        $stmt->bind_result($estado);
+        $stmt->bind_result($nome, $endereco,$telefone,$categoria,$cidade,$estado);
         $stmt->store_result();
         if ($stmt->num_rows == 1 && $stmt->fetch()) {
           $dep = new Fornecedor($nome, $endereco, $telefone,  $categoria, $cidade, $estado, $id);
