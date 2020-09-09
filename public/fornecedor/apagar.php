@@ -42,8 +42,8 @@ else {
                   value="<?php echo $fornecedor->getId(); ?>"
                 >
                 <div class="form-group">
-                  <label for="marca">Deseja realmente apagar a Fornecedor abaixo?</label>
-                  <input type="text" class="form-control" id="marca" aria-describedby="help" 
+                  <label for="nome">Deseja realmente apagar a Fornecedor abaixo?</label>
+                  <input type="text" class="form-control" id="nome" aria-describedby="help" 
                     value="<?php echo $fornecedor->getNome();?>" 
                     readonly
                   >
