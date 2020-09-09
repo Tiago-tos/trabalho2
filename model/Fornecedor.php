@@ -8,7 +8,7 @@ class Fornecedor {
     private $cidade;
     private $estado;
 
-    public function __construct(string $nome="", string $endereco="",string $telefone, string $categoria="", string $cidade="", string $estado="", string $nome="", int $id=-1) {
+    public function __construct(string $nome="", string $endereco="",string $telefone, string $categoria="", string $cidade="", string $estado="", int $id=-1) {
         $this->id = $id;
         $this->nome = $nome;
         $this->endereco = $endereco;
