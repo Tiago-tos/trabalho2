@@ -3,8 +3,8 @@
 require_once(__DIR__ . '/../../templates/template-html.php');
 
 require_once(__DIR__ . '/../../db/Db.php');
-require_once(__DIR__ . '/../../model/Marca.php');
-require_once(__DIR__ . '/../../dao/DaoMarca.php');
+require_once(__DIR__ . '/../../model/Fornecedor.php');
+require_once(__DIR__ . '/../../dao/DaoFornecedor.php');
 require_once(__DIR__ . '/../../config/config.php');
 
 $conn = Db::getInstance();
@@ -13,13 +13,18 @@ if (! $conn->connect()) {
     die();
 }
 
-$daoMarca = new DaoMarca($conn);
-$marca = $daoMarca->porId( $_POST['id'] );
+$daoFornecedor = new DaoFornecedor($conn);
+$fornecedor = $daoFornecedor->porId( $_POST['id'] );
     
-if ( $marca )
+if ( $fornecedor )
 {  
-  $marca->setNome( $_POST['nome'] );
-  $daoMarca->atualizar( $marca );
+  $fornecedor->setNome( $_POST['nome'] );
+  $fornecedor->setEndereco( $_POST['endereco'] );
+  $fornecedor->setCategoria( $_POST['categoria'] );
+  $fornecedor->setTelefone( $_POST['telefone'] );
+  $fornecedor->setCidade( $_POST['cidade'] );
+  $fornecedor->setEstado( $_POST['estado'] );
+  $daoFornecedor->atualizar( $fornecedor );
 }
 
 header('Location: ./index.php');

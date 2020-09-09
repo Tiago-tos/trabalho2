@@ -25,7 +25,7 @@ else {
 ?>
     <div class="container">
         <div class="py-5 text-center">
-            <h2>Cadastro de Marcas</h2>
+            <h2>Cadastro de Fornecedores</h2>
         </div>
         <div class="row">
             <div class="col-md-12" >
@@ -34,9 +34,32 @@ else {
                   <div class="input-group">
                       <input type="hidden" name="id" 
                           value="<?php echo $marca->getId(); ?>">                      
-                      <input type="text" placeholder="Nome da Marca" 
+
+                          <input type="text" placeholder="Nome do Fornecedor" 
                           value="<?php echo $marca->getNome(); ?>"
                           class="form-control" name="nome" required>
+
+                        <input type="text" placeholder="Endereço" 
+                        value="<?php echo $marca->getEndereco(); ?>"
+                            class="form-control" name="endereco" required>
+                
+                        <input type="text" placeholder="Telefone" 
+                        value="<?php echo $marca->getTelefone(); ?>"
+                            class="form-control" name="telefone" required>
+                
+                        <input type="text" placeholder="Categoria" 
+                        value="<?php echo $marca->getCategoria(); ?>"
+                            class="form-control" name="categoria" required>
+                
+                        <input type="text" placeholder="Cidade" 
+                        value="<?php echo $marca->getCidade(); ?>"
+                            class="form-control" name="cidade">
+                    
+                        <input type="text" placeholder="Estado" 
+                        value="<?php echo $marca->getEstado(); ?>"
+                            class="form-control" name="estado">
+
+
                       <div class="input-group-append">
                           <button type="submit" class="btn btn-primary">
                               Salvar

@@ -42,7 +42,7 @@ if ($db->connect()) {
   $prods[] = new Produto("Tablet Multilaser 10p", 200, 20, $marcas[7]);
   foreach($prods as $prod) $daoProd->inserir($prod);
 
-  $fornecedor[] = new Fornecedor("Teste", "62982508951", "Teste", "MT", "MT");
+  $fornecedor[] = new Fornecedor("Teste", "endereco teste", "Teste", "MT", "MT");
   foreach($fornecedor as $fornecedor) $daoForn->inserir($fornecedor);
 
   $daoProd->sincronizarDepartamentos($prods[0], [

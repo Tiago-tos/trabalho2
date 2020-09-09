@@ -13,7 +13,7 @@ class DaoFornecedor {
   }
   
   public function porId(int $id): ?Fornecedor {
-    $sql = "SELECT * FROM fornecedor where id = ?";
+    $sql = "SELECT id, nome, endereco, telefone,  categoria, cidade, estado FROM fornecedor where id = ?";
     $stmt = $this->connection->prepare($sql);
     $dep = null;
     if ($stmt) {
@@ -77,13 +77,18 @@ class DaoFornecedor {
   }
 
   public function atualizar(Fornecedor $fornecedor): bool {
-    $sql = "UPDATE fornecedor SET nome = ? WHERE id = ?";
+    $sql = "UPDATE fornecedor SET nome = ?, endereco = ?, telefone = ?, categoria = ?, cidade = ?, estado = ? WHERE id = ?";
     $stmt = $this->connection->prepare($sql);
     $ret = false;      
     if ($stmt) {
-      $nome = $fornecedor->getNome();
       $id   = $fornecedor->getId();
-      $stmt->bind_param('si', $nome, $id);
+      $nome = $fornecedor->getNome();
+      $endereco = $fornecedor->getEndereco();
+      $telefone = $fornecedor->getTelefone();
+      $categoria = $fornecedor->getCategoria();
+      $cidade = $fornecedor->getCidade();
+      $estado = $fornecedor->getEstado();
+      $stmt->bind_param('sdiiiii', $nome, $endereco, $telefone, $categoria,  $cidade, $estado,  $id);
       $ret = $stmt->execute();
       $stmt->close();
     }

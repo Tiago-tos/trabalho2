@@ -41,6 +41,10 @@ ob_start();
                         <th scope="col">#</th>
                         <th scope="col">Nome</th>
                         <th scope="col">Endereco</th>
+                        <th scope="col">Telefone</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Cidade</th>
+                        <th scope="col">Estado</th>
                         <th scope="col">Ações</th>
                     </tr>
                 </thead>
@@ -52,6 +56,10 @@ ob_start();
                         <th scope="row"><?php echo  $d->getId(); ?></th>
                         <td><?php echo $d->getNome(); ?></td>
                         <td><?php echo $d->getEndereco(); ?></td>
+                        <td><?php echo $d->getTelefone(); ?></td>
+                        <td><?php echo $d->getCategoria(); ?></td>
+                        <td><?php echo $d->getCidade(); ?></td>
+                        <td><?php echo $d->getEstado(); ?></td>
                         <td>
                             <a class="btn btn-danger btn-sm active" 
                                 href="apagar.php?id=<?php echo $d->getId();?>">
