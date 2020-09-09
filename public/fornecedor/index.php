@@ -20,7 +20,7 @@ ob_start();
 ?>
     <div class="container">
         <div class="py-5 text-center">
-            <h2>Cadastro de Marcas</h2>
+        <h2>Cadastro de Fornecedores</h2>
         </div>
         <div class="row mb-2">
             <div class="col-md-12" >
