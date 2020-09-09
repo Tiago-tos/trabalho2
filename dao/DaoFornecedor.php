@@ -87,16 +87,22 @@ class DaoFornecedor {
 
   
   public function todos(): array {
-    $sql = "SELECT id, nome from fornecedor";
+    $sql = "SELECT id, nome, endereco, telefone,  categoria, cidade, estado from fornecedor";
     $stmt = $this->connection->prepare($sql);
     $fornecedor = [];
     if ($stmt) {
       if ($stmt->execute()) {
-        $id = 0; $nome = '';
-        $stmt->bind_result($id, $nome);
+        $id = 0; 
+        $nome = '';
+        $endereco = '';
+        $telefone = '';
+        $categoria = '';
+        $cidade = '';
+        $estado = '';
+        $stmt->bind_result($id, $nome, $endereco, $telefone,  $categoria, $cidade, $estado);
         $stmt->store_result();
         while($stmt->fetch()) {
-          $fornecedor[] = new Fornecedor($nome, $id);
+          $fornecedor[] = new Fornecedor($nome, $endereco, $telefone,  $categoria, $cidade, $estado, $id);
         }
       }
       $stmt->close();

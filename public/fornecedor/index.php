@@ -2,8 +2,8 @@
 
 require_once(__DIR__ . '/../../templates/template-html.php');
 require_once(__DIR__ . '/../../db/Db.php');
-require_once(__DIR__ . '/../../model/Marca.php');
-require_once(__DIR__ . '/../../dao/DaoMarca.php');
+require_once(__DIR__ . '/../../model/Fornecedor.php');
+require_once(__DIR__ . '/../../dao/DaoFornecedor.php');
 require_once(__DIR__ . '/../../config/config.php');
 
 $conn = Db::getInstance();
@@ -12,8 +12,8 @@ if (! $conn->connect()) {
     die();
 }
 
-$daoMarca = new DaoMarca($conn);
-$marcas = $daoMarca->todos();
+$daoFornecedor= new DaoFornecedor($conn);
+$fornecedor = $daoFornecedor->todos();
 
 ob_start();
 
@@ -24,12 +24,12 @@ ob_start();
         </div>
         <div class="row mb-2">
             <div class="col-md-12" >
-                <a href="novo.php" class="btn btn-primary active" role="button" aria-pressed="true">Nova Marca</a>
+                <a href="novo.php" class="btn btn-primary active" role="button" aria-pressed="true">Novo Fornecedor</a>
             </div>
         </div>
 
 <?php 
-    if (count($marcas) >0) 
+    if (count($fornecedor) >0) 
     {
 ?>
         <div class="row">
@@ -40,16 +40,18 @@ ob_start();
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nome</th>
+                        <th scope="col">Endereco</th>
                         <th scope="col">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
 <?php 
-        foreach($marcas as $d) {
+        foreach($fornecedor as $d) {
 ?>                    
                     <tr>
                         <th scope="row"><?php echo  $d->getId(); ?></th>
                         <td><?php echo $d->getNome(); ?></td>
+                        <td><?php echo $d->getEndereco(); ?></td>
                         <td>
                             <a class="btn btn-danger btn-sm active" 
                                 href="apagar.php?id=<?php echo $d->getId();?>">
